@@ -5,13 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import il.co.syntax.finalkotlinproject.databinding.CharacterDetailFragmentBinding
+import il.co.syntax.finalkotlinproject.data.models.Cocktail
+import il.co.syntax.finalkotlinproject.databinding.CocktailDetailFragmentBinding
 import il.co.syntax.fullarchitectureretrofithiltkotlin.utils.autoCleared
 
 class DetailedCocktailFragment : Fragment() {
 
 
-    private var binding: CharacterDetailFragmentBinding by autoCleared()
+    private var binding: CocktailDetailFragmentBinding by autoCleared()
 
 
     override fun onCreateView(
@@ -19,7 +20,7 @@ class DetailedCocktailFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = CharacterDetailFragmentBinding.inflate(inflater, container, false)
+        binding = CocktailDetailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -35,7 +36,7 @@ class DetailedCocktailFragment : Fragment() {
         }
     }
 
-    private fun updateCharacter(character: Character) {
+    private fun updateCocktail(cocktail: Cocktail) {
 
         //TODO:Uncomment these lines to update the ui with the character
         /*

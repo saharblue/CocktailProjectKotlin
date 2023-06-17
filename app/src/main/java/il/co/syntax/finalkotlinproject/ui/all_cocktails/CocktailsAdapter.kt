@@ -7,17 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.databinding.ItemCocktailBinding
 
-class CocktailsAdapter(private val listener : CharacterItemListener) :
-    RecyclerView.Adapter<CocktailsAdapter.CharacterViewHolder>() {
+class CocktailsAdapter(private val listener : CocktailItemListener) :
+    RecyclerView.Adapter<CocktailsAdapter.CocktailViewHolder>() {
 
-    private val characters = ArrayList<Cocktail>()
+    private val cocktails = ArrayList<Cocktail>()
 
-    class CharacterViewHolder(private val itemBinding: ItemCocktailBinding,
-                              private val listener: CharacterItemListener)
+    class CocktailViewHolder(private val itemBinding: ItemCocktailBinding,
+                             private val listener: CocktailItemListener)
         : RecyclerView.ViewHolder(itemBinding.root),
         View.OnClickListener {
 
-        private lateinit var character: Cocktail
+        private lateinit var cocktail: Cocktail
 
         init {
             itemBinding.root.setOnClickListener(this)
@@ -34,25 +34,25 @@ class CocktailsAdapter(private val listener : CharacterItemListener) :
         }
     }
 
-    fun setCharacters(characters : Collection<Cocktail>) {
-        this.characters.clear()
-        this.characters.addAll(characters)
+    fun setCocktails(cocktails : Collection<Cocktail>) {
+        this.cocktails.clear()
+        this.cocktails.addAll(cocktails)
         notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CocktailViewHolder {
         val binding = ItemCocktailBinding.inflate(LayoutInflater.from(parent.context),parent,false)
-        return CharacterViewHolder(binding,listener)
+        return CocktailViewHolder(binding,listener)
     }
 
-    override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) =
-        holder.bind(characters[position])
+    override fun onBindViewHolder(holder: CocktailViewHolder, position: Int) =
+        holder.bind(cocktails[position])
 
 
-    override fun getItemCount() = characters.size
+    override fun getItemCount() = cocktails.size
 
-    interface CharacterItemListener {
-        fun onCharacterClick(characterId : Int)
+    interface CocktailItemListener {
+        fun onCocktailClick(characterId : Int)
     }
 }
 

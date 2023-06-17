@@ -12,7 +12,7 @@ import il.co.syntax.finalkotlinproject.R
 import il.co.syntax.finalkotlinproject.databinding.CocktailsFragmentBinding
 import il.co.syntax.fullarchitectureretrofithiltkotlin.utils.autoCleared
 
-class AllCocktailsFragment : Fragment(), CocktailsAdapter.CharacterItemListener {
+class AllCocktailsFragment : Fragment(), CocktailsAdapter.CocktailItemListener {
 
     private var binding : CocktailsFragmentBinding by autoCleared()
 
@@ -39,7 +39,7 @@ class AllCocktailsFragment : Fragment(), CocktailsAdapter.CharacterItemListener 
         //TODO: observe your data
     }
 
-    override fun onCharacterClick(characterId: Int) {
+    override fun onCocktailClick(characterId: Int) {
        findNavController().navigate(R.id.action_allCharactersFragment_to_singleCharacterFragment,
            bundleOf("id" to characterId))
     }
