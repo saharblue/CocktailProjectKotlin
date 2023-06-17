@@ -1,4 +1,7 @@
 package il.co.syntax.finalkotlinproject.data.models
 
-class AllCocktailResults {
+data class AllCocktailResults (
+    val results : List<Cocktail>
+) {
+
 }

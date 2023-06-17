@@ -4,15 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import il.co.syntax.finalkotlinproject.R
 import il.co.syntax.finalkotlinproject.databinding.CocktailsFragmentBinding
+import il.co.syntax.finalkotlinproject.utils.Error
+import il.co.syntax.finalkotlinproject.utils.Loading
+import il.co.syntax.finalkotlinproject.utils.Success
 import il.co.syntax.fullarchitectureretrofithiltkotlin.utils.autoCleared
 
+@AndroidEntryPoint
 class AllCocktailsFragment : Fragment(), CocktailsAdapter.CocktailItemListener {
+
+    private val viewModel : AllCocktailsViewModel by viewModels()
 
     private var binding : CocktailsFragmentBinding by autoCleared()
 
@@ -35,12 +44,25 @@ class AllCocktailsFragment : Fragment(), CocktailsAdapter.CocktailItemListener {
         binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
         binding.charactersRv.adapter = adapter
 
+        viewModel.cocktails.observe(viewLifecycleOwner) {
+            when(it.status) {
+                is Loading -> binding.progressBar.visibility = View.VISIBLE
 
-        //TODO: observe your data
+                is Success -> {
+                    binding.progressBar.visibility = View.GONE
+                    adapter.setCocktails(it.status.data!!)
+                }
+
+                is Error -> {
+                    binding.progressBar.visibility = View.GONE
+                    Toast.makeText(requireContext(),it.status.message, Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 
-    override fun onCocktailClick(characterId: Int) {
-       findNavController().navigate(R.id.action_allCharactersFragment_to_singleCharacterFragment,
-           bundleOf("id" to characterId))
+    override fun onCocktailClick(cocktailId: Int){
+        findNavController().navigate(R.id.action_allCharactersFragment_to_singleCharacterFragment,
+            bundleOf("id" to cocktailId))
     }
 }

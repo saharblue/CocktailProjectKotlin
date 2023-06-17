@@ -8,6 +8,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import il.co.syntax.finalkotlinproject.data.loca_db.AppDatabase
+import il.co.syntax.finalkotlinproject.data.remote_db.CocktailService
 import il.co.syntax.finalkotlinproject.utils.Constants
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,6 +28,20 @@ object AppModule {
         return Retrofit.Builder().baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create(gson)).build()
     }
+
+    @Provides
+    fun provideCocktailService(retrofit: Retrofit) : CocktailService =
+        retrofit.create(CocktailService::class.java)
+
+
+    @Provides
+    @Singleton
+    fun provideLocalDataBase(@ApplicationContext appContext : Context) : AppDatabase =
+        AppDatabase.getDatabase(appContext)
+
+    @Provides
+    @Singleton
+    fun provideCocktailDao(database: AppDatabase) = database.cocktailDao()
 
 
 }

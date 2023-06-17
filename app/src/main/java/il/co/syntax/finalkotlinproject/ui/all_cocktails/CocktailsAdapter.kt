@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.databinding.ItemCocktailBinding
 
@@ -24,8 +25,13 @@ class CocktailsAdapter(private val listener : CocktailItemListener) :
         }
 
         fun bind(item: Cocktail) {
-
-            //TODO:bind you data
+            this.cocktail = item
+            itemBinding.name.text = item.name
+            itemBinding.speciesAndStatus.text = "${item.species} - ${item.status}"
+            Glide.with(itemBinding.root)
+                .load(item.picture)
+                .circleCrop()
+                .into(itemBinding.image)
         }
 
         override fun onClick(v: View?) {
