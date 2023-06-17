@@ -8,9 +8,9 @@ import retrofit2.http.Path
 
 interface CocktailService {
 
-    @GET("search.php?i=vodka")
+    @GET("search.php?s=margarita")
     suspend fun getAllCocktails() : Response<AllCocktailResults>
 
-    @GET("/lookup.php?i={id}")
+    @GET("lookup.php?i={id}")
     suspend fun getCocktail(@Path("id") id : Int) : Response<Cocktail>
 }
