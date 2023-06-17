@@ -1,12 +1,11 @@
 <resources>
     <string name="app_name">FinalKotlinProject</string>
-    
-<!--    cocktail detail fragment-->
+
+    <!--    cocktail detail fragment-->
     <string name="name_title">Name:</string>
     <string name="type_title">Type:</string>
     <string name="glass_title">Glass:</string>
-    <string name="ingredients">Ingredients:</string>
-
-
+    <string name="ingredients_title">Ingredients:</string>
+    <string name="instructions_title">Instructions:</string>
 
 </resources>
