@@ -26,17 +26,16 @@ class CocktailsAdapter(private val listener : CocktailItemListener) :
 
         fun bind(item: Cocktail) {
             this.cocktail = item
-            itemBinding.name.text = item.name
-            itemBinding.speciesAndStatus.text = "${item.species} - ${item.status}"
+            itemBinding.name.text = item.strDrink
+            itemBinding.speciesAndStatus.text = "${item.strAlcoholic} - ${item.strIngredient1}"
             Glide.with(itemBinding.root)
-                .load(item.picture)
+                .load(item.image)
                 .circleCrop()
                 .into(itemBinding.image)
         }
 
         override fun onClick(v: View?) {
-
-            //TODO:pass the relevant item
+            listener.onCocktailClick(cocktail.idDrink)
         }
     }
 
@@ -58,7 +57,7 @@ class CocktailsAdapter(private val listener : CocktailItemListener) :
     override fun getItemCount() = cocktails.size
 
     interface CocktailItemListener {
-        fun onCocktailClick(characterId : Int)
+        fun onCocktailClick(cocktailId : Int)
     }
 }
 
