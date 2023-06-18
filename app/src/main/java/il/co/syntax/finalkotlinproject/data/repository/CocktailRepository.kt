@@ -21,6 +21,6 @@ class CocktailRepository @Inject constructor(
     fun getCocktail(id : Int) = performFetchingAndSaving(
         {localDataSource.getCocktail(id)},
         {remoteDataSource.getCocktail(id)},
-        {localDataSource.insertCocktail(it)}
+        {localDataSource.insertCocktail(it.drinks[0])}
     )
 }

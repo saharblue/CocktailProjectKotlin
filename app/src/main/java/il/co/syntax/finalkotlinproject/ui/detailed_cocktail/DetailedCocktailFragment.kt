@@ -48,12 +48,13 @@ class DetailedCocktailFragment : Fragment() {
                 }
                 is Error -> {
                     binding.progressBar.visibility = View.GONE
+                    println(it.status.message)
                     Toast.makeText(requireContext(),it.status.message, Toast.LENGTH_LONG).show()
                 }
             }
         }
 
-        arguments?.getInt("id")?.let {
+        arguments?.getInt("idDrink")?.let {
 
             viewModel.setId(it)
         }
