@@ -27,7 +27,7 @@ class CocktailsAdapter(private val listener : CocktailItemListener) :
         fun bind(item: Cocktail) {
             this.cocktail = item
             itemBinding.name.text = item.strDrink
-            itemBinding.speciesAndStatus.text = "${item.strAlcoholic} - ${item.strIngredient1}"
+            itemBinding.speciesAndStatus.text = item.strAlcoholic
             Glide.with(itemBinding.root)
                 .load(item.image)
                 .circleCrop()
@@ -46,7 +46,8 @@ class CocktailsAdapter(private val listener : CocktailItemListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CocktailViewHolder {
-        val binding = ItemCocktailBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = ItemCocktailBinding.inflate(LayoutInflater.from(parent.context),parent,
+            false)
         return CocktailViewHolder(binding,listener)
     }
 
