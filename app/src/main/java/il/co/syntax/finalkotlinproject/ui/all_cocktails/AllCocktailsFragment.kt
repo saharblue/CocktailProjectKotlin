@@ -63,6 +63,6 @@ class AllCocktailsFragment : Fragment(), CocktailsAdapter.CocktailItemListener {
 
     override fun onCocktailClick(cocktailId: Int){
         findNavController().navigate(R.id.action_allCocktailsFragment_to_detailedCocktailFragment2,
-            bundleOf("id" to cocktailId))
+            bundleOf("idDrink" to cocktailId))
     }
 }
