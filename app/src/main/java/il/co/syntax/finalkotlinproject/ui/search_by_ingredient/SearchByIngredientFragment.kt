@@ -38,6 +38,8 @@ class SearchByIngredientFragment : Fragment() {
         }
     }
 
+
+
     private fun onButtonClick(cocktailName: String){
         // Hide the keyboard
         val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager

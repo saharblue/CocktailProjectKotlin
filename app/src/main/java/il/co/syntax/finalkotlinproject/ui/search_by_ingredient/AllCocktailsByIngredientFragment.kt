@@ -15,6 +15,8 @@ import il.co.syntax.finalkotlinproject.R
 import il.co.syntax.finalkotlinproject.databinding.CocktailsByNameFragmentBinding
 import il.co.syntax.finalkotlinproject.databinding.CocktailsFragmentBinding
 import il.co.syntax.finalkotlinproject.ui.all_cocktails.CocktailsAdapter
+import il.co.syntax.finalkotlinproject.ui.detailed_cocktail.DetailedCocktailFragment
+import il.co.syntax.finalkotlinproject.ui.detailed_cocktail.DetailedCocktailViewModel
 import il.co.syntax.finalkotlinproject.utils.Error
 import il.co.syntax.finalkotlinproject.utils.Loading
 import il.co.syntax.finalkotlinproject.utils.Success
@@ -42,8 +44,7 @@ class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapte
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val cocktailName = arguments?.getString("cocktailName") ?: ""
-        viewModel.setName(cocktailName)
+
 
         adapter = CocktailsByIngredientAdapter(this)
         binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
@@ -63,6 +64,10 @@ class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapte
                     Toast.makeText(requireContext(),it.status.message, Toast.LENGTH_LONG).show()
                 }
             }
+        }
+
+        arguments?.getString("cocktailName")?.let {
+            viewModel.setName(it)
         }
     }
 
