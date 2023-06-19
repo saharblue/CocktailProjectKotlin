@@ -42,9 +42,6 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val cocktailName = arguments?.getString("cocktailName") ?: ""
-        viewModel.setName(cocktailName)
-
         adapter = CocktailsByNameAdapter(this)
         binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
         binding.charactersRv.adapter = adapter
@@ -63,6 +60,9 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
                     Toast.makeText(requireContext(),it.status.message, Toast.LENGTH_LONG).show()
                 }
             }
+        }
+        arguments?.getString("cocktailName")?.let {
+            viewModel.setName(it)
         }
     }
 
