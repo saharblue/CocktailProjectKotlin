@@ -21,13 +21,13 @@ import il.co.syntax.finalkotlinproject.utils.Success
 import il.co.syntax.fullarchitectureretrofithiltkotlin.utils.autoCleared
 
 @AndroidEntryPoint
-class AllCocktailsByNameFragment : Fragment(), CocktailsAdapter.CocktailItemListener {
+class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailItemListener {
 
     private val viewModel : AllCocktailsByNameViewModel by viewModels()
 
     private var binding : CocktailsByNameFragmentBinding by autoCleared()
 
-    private  lateinit var  adapter: CocktailsAdapter
+    private  lateinit var  adapter: CocktailsByNameAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +45,7 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsAdapter.CocktailItemList
         val cocktailName = arguments?.getString("cocktailName") ?: ""
         viewModel.setName(cocktailName)
 
-        adapter = CocktailsAdapter(this)
+        adapter = CocktailsByNameAdapter(this)
         binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
         binding.charactersRv.adapter = adapter
 
