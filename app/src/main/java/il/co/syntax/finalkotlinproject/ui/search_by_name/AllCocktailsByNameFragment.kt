@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import il.co.syntax.finalkotlinproject.R
+import il.co.syntax.finalkotlinproject.databinding.CocktailsByNameFragmentBinding
 import il.co.syntax.finalkotlinproject.databinding.CocktailsFragmentBinding
 import il.co.syntax.finalkotlinproject.ui.all_cocktails.CocktailsAdapter
 import il.co.syntax.finalkotlinproject.utils.Error
@@ -24,7 +25,7 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsAdapter.CocktailItemList
 
     private val viewModel : AllCocktailsByNameViewModel by viewModels()
 
-    private var binding : CocktailsFragmentBinding by autoCleared()
+    private var binding : CocktailsByNameFragmentBinding by autoCleared()
 
     private  lateinit var  adapter: CocktailsAdapter
 
@@ -33,13 +34,16 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsAdapter.CocktailItemList
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = CocktailsFragmentBinding.inflate(inflater,container,false)
+        binding = CocktailsByNameFragmentBinding.inflate(inflater,container,false)
         return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val cocktailName = arguments?.getString("cocktailName") ?: ""
+        viewModel.setName(cocktailName)
 
         adapter = CocktailsAdapter(this)
         binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())

@@ -41,7 +41,7 @@ class SearchByNameFragment :  Fragment() {
 
      private fun onButtonClick(cocktailName: String){
         findNavController().navigate(
-            R.id.action_allCocktailsFragment_to_detailedCocktailFragment2,
+            R.id.action_searchByNameFragment_to_allCocktailsByNameFragment2,
             bundleOf("cocktailName" to cocktailName))
     }
 
