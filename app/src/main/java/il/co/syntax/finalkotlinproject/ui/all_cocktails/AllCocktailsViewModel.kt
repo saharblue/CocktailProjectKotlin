@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AllCocktailsViewModel @Inject constructor(
-    cocktailRepository: CocktailRepository
+    private val cocktailRepository: CocktailRepository
 ) : ViewModel() {
 
     val cocktails  = cocktailRepository.getCocktails()

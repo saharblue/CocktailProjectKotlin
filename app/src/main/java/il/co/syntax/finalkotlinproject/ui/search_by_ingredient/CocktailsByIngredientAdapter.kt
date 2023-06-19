@@ -1,4 +1,4 @@
-package il.co.syntax.finalkotlinproject.ui.search_by_name
+package il.co.syntax.finalkotlinproject.ui.search_by_ingredient
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,29 +6,30 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
+import il.co.syntax.finalkotlinproject.data.models.IngredientResult
 import il.co.syntax.finalkotlinproject.databinding.ItemCocktailBinding
+import il.co.syntax.finalkotlinproject.databinding.ItemCocktailByIngredientBinding
 import il.co.syntax.finalkotlinproject.databinding.ItemCocktailByNameBinding
 
-class CocktailsByNameAdapter(private val listener : CocktailItemListener) :
-    RecyclerView.Adapter<CocktailsByNameAdapter.CocktailViewHolder>() {
+class CocktailsByIngredientAdapter(private val listener : CocktailItemListener) :
+    RecyclerView.Adapter<CocktailsByIngredientAdapter.CocktailViewHolder>() {
 
-    private val cocktails = ArrayList<Cocktail>()
+    private val cocktails = ArrayList<IngredientResult>()
 
-    class CocktailViewHolder(private val itemBinding: ItemCocktailByNameBinding,
+    class CocktailViewHolder(private val itemBinding: ItemCocktailByIngredientBinding,
                              private val listener: CocktailItemListener)
         : RecyclerView.ViewHolder(itemBinding.root),
         View.OnClickListener {
 
-        private lateinit var cocktail: Cocktail
+        private lateinit var cocktail: IngredientResult
 
         init {
             itemBinding.root.setOnClickListener(this)
         }
 
-        fun bind(item: Cocktail) {
+        fun bind(item: IngredientResult) {
             this.cocktail = item
             itemBinding.name.text = item.strDrink
-            itemBinding.type.text = item.strAlcoholic
             Glide.with(itemBinding.root)
                 .load(item.image)
                 .circleCrop()
@@ -40,14 +41,14 @@ class CocktailsByNameAdapter(private val listener : CocktailItemListener) :
         }
     }
 
-    fun setCocktails(cocktails : Collection<Cocktail>) {
+    fun setCocktails(cocktails : Collection<IngredientResult>) {
         this.cocktails.clear()
         this.cocktails.addAll(cocktails)
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CocktailViewHolder {
-        val binding = ItemCocktailByNameBinding.inflate(LayoutInflater.from(parent.context),parent,
+        val binding = ItemCocktailByIngredientBinding.inflate(LayoutInflater.from(parent.context),parent,
             false)
         return CocktailViewHolder(binding,listener)
     }

@@ -1,4 +1,4 @@
-package il.co.syntax.finalkotlinproject.ui.search_by_name
+package il.co.syntax.finalkotlinproject.ui.search_by_ingredient
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -21,13 +21,13 @@ import il.co.syntax.finalkotlinproject.utils.Success
 import il.co.syntax.fullarchitectureretrofithiltkotlin.utils.autoCleared
 
 @AndroidEntryPoint
-class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailItemListener {
+class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapter.CocktailItemListener {
 
-    private val viewModel : AllCocktailsByNameViewModel by viewModels()
+    private val viewModel : AllCocktailsByIngredientViewModel by viewModels()
 
     private var binding : CocktailsByNameFragmentBinding by autoCleared()
 
-    private  lateinit var  adapter: CocktailsByNameAdapter
+    private  lateinit var  adapter: CocktailsByIngredientAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,7 +45,7 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
         val cocktailName = arguments?.getString("cocktailName") ?: ""
         viewModel.setName(cocktailName)
 
-        adapter = CocktailsByNameAdapter(this)
+        adapter = CocktailsByIngredientAdapter(this)
         binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
         binding.charactersRv.adapter = adapter
 

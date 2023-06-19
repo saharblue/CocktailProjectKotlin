@@ -34,7 +34,15 @@
         android:id="@+id/searchByIngredientFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.search_by_ingredient.SearchByIngredientFragment"
         android:label="search_by_ingredient_fragment"
-        tools:layout="@layout/search_by_ingredient_fragment" />
+        tools:layout="@layout/search_by_ingredient_fragment" >
+        <action
+            android:id="@+id/action_searchByIngredientFragment_to_allCocktailsByIngredientFragment2"
+            app:destination="@id/allCocktailsByIngredientFragment2"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
     <fragment
         android:id="@+id/allCocktailsFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.all_cocktails.AllCocktailsFragment"
@@ -52,5 +60,18 @@
         android:id="@+id/allCocktailsByNameFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.search_by_name.AllCocktailsByNameFragment"
         android:label="cocktails_by_name_fragment"
-        tools:layout="@layout/cocktails_by_name_fragment" />
+        tools:layout="@layout/cocktails_by_name_fragment" >
+        <action
+            android:id="@+id/action_allCocktailsByNameFragment_to_detailedCocktailFragment"
+            app:destination="@id/detailedCocktailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/allCocktailsByIngredientFragment2"
+        android:name="il.co.syntax.finalkotlinproject.ui.search_by_ingredient.AllCocktailsByIngredientFragment"
+        android:label="cocktails_by_ingredient_fragment"
+        tools:layout="@layout/cocktails_by_ingredient_fragment" />
 </navigation>

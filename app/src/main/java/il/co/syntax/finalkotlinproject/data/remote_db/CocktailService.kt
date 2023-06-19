@@ -1,8 +1,6 @@
 package il.co.syntax.finalkotlinproject.data.remote_db
 
-import il.co.syntax.finalkotlinproject.data.models.AllCocktailResults
-import il.co.syntax.finalkotlinproject.data.models.Cocktail
-import il.co.syntax.finalkotlinproject.data.models.DetailedCocktail
+import il.co.syntax.finalkotlinproject.data.models.*
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -18,5 +16,8 @@ interface CocktailService {
 
     @GET("search.php")
     suspend fun getCocktailsByName(@Query("s") name : String) : Response<AllCocktailResults>
+
+    @GET("filter.php")
+    suspend fun getCocktailsByIngredient(@Query("i") name : String) : Response<IngredientSearchResults>
 
 }
