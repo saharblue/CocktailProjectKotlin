@@ -67,7 +67,7 @@ class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapte
     }
 
     override fun onCocktailClick(cocktailId: Int){
-        findNavController().navigate(R.id.action_allCocktailsByNameFragment_to_detailedCocktailFragment,
+        findNavController().navigate(R.id.action_allCocktailsByIngredientFragment2_to_detailedCocktailFragment,
             bundleOf("idDrink" to cocktailId))
     }
 }
