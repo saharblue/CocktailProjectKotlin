@@ -35,7 +35,11 @@ class DetailedCocktailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+
         viewModel.cocktail.observe(viewLifecycleOwner) {
+
             when(it.status) {
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
@@ -58,6 +62,7 @@ class DetailedCocktailFragment : Fragment() {
 
             viewModel.setId(it)
         }
+
     }
 
     @SuppressLint("SetTextI18n")
