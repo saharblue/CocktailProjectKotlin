@@ -16,4 +16,7 @@ interface CocktailService {
     @GET("lookup.php")
     suspend fun getCocktail(@Query("i") id : Int) : Response<DetailedCocktail>
 
+    @GET("search.php")
+    suspend fun getCocktailsByName(@Query("s") name : String) : Response<AllCocktailResults>
+
 }
