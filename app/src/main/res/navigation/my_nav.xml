@@ -10,6 +10,16 @@
         android:label="cocktail_detail_fragment"
         tools:layout="@layout/cocktail_detail_fragment" />
     <fragment
+        android:id="@+id/searchByNameFragment"
+        android:name="il.co.syntax.finalkotlinproject.ui.search_by_name.SearchByNameFragment"
+        android:label="search_by_name_fragment"
+        tools:layout="@layout/search_by_name_fragment" />
+    <fragment
+        android:id="@+id/searchByIngredientFragment"
+        android:name="il.co.syntax.finalkotlinproject.ui.search_by_ingredient.SearchByIngredientFragment"
+        android:label="search_by_ingredient_fragment"
+        tools:layout="@layout/search_by_ingredient_fragment" />
+    <fragment
         android:id="@+id/allCocktailsFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.all_cocktails.AllCocktailsFragment"
         android:label="cocktails_fragment"

@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/allCocktailsFragment"
+        android:id="@+id/searchByIngredientFragment"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="All Cocktails" />
+        android:title="Search by ingredient" />
 
     <item
-        android:id="@+id/detailedCocktailFragment"
+        android:id="@+id/searchByNameFragment"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Detailed Cocktail" />
+        android:title="Search by name" />
 
     <item
         android:id="@+id/favoritesCocktailsFragment"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Detailed Cocktail" />
+        android:title="Favorites" />
+
+    <item
+        android:id="@+id/randomCocktailFragment"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="Favorites" />
+
 </menu>
