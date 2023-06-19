@@ -13,7 +13,15 @@
         android:id="@+id/searchByNameFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.search_by_name.SearchByNameFragment"
         android:label="search_by_name_fragment"
-        tools:layout="@layout/search_by_name_fragment" />
+        tools:layout="@layout/search_by_name_fragment" >
+        <action
+            android:id="@+id/action_searchByNameFragment_to_allCocktailsByNameFragment"
+            app:destination="@id/allCocktailsFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
+    </fragment>
     <fragment
         android:id="@+id/searchByIngredientFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.search_by_ingredient.SearchByIngredientFragment"
