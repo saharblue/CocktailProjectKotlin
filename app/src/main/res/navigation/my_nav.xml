@@ -73,5 +73,13 @@
         android:id="@+id/allCocktailsByIngredientFragment2"
         android:name="il.co.syntax.finalkotlinproject.ui.search_by_ingredient.AllCocktailsByIngredientFragment"
         android:label="cocktails_by_ingredient_fragment"
-        tools:layout="@layout/cocktails_by_ingredient_fragment" />
+        tools:layout="@layout/cocktails_by_ingredient_fragment" >
+        <action
+            android:id="@+id/action_allCocktailsByIngredientFragment2_to_detailedCocktailFragment"
+            app:destination="@id/detailedCocktailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
 </navigation>
