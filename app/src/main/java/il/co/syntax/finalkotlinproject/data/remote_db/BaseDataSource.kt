@@ -15,7 +15,6 @@ abstract class BaseDataSource {
             if(result.isSuccessful) {
                 val body = result.body()
                 if(body != null) return  Resource.success(body)
-                else Log.d(TAG, "getResult: body is null")
             }
             return Resource.error("Network call has failed for the following reason: " +
                     "${result.message()} ${result.code()}")

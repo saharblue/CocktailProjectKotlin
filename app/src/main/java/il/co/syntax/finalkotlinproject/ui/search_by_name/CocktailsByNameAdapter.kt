@@ -3,6 +3,7 @@ package il.co.syntax.finalkotlinproject.ui.search_by_name
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
@@ -42,8 +43,13 @@ class CocktailsByNameAdapter(private val listener : CocktailItemListener) :
 
     fun setCocktails(cocktails : Collection<Cocktail>) {
         this.cocktails.clear()
-        this.cocktails.addAll(cocktails)
-        notifyDataSetChanged()
+        if (cocktails.isEmpty()) {
+            println("cocktails is empty")
+        }
+        else {
+            this.cocktails.addAll(cocktails)
+            notifyDataSetChanged()
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CocktailViewHolder {
