@@ -61,12 +61,16 @@
         android:label="favorite_cocktails_fragment"
         tools:layout="@layout/favorite_cocktails_fragment" >
         <action
-            android:id="@+id/action_favoriteCocktailsFragment_to_detailedCocktailFragment"
-            app:destination="@id/detailedCocktailFragment"
+            android:id="@+id/action_favoriteCocktailsFragment_to_detailedFavoriteCocktailFragment"
+            app:destination="@id/detailedFavoriteCocktailFragment"
             app:enterAnim="@anim/from_right"
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/detailedFavoriteCocktailFragment"
+        android:name="il.co.syntax.finalkotlinproject.ui.detailed_favorite_cocktail.DetailedFavoriteCocktailFragment"
+        android:label="DetailedFavoriteCocktailFragment" />
 
 </navigation>

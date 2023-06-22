@@ -102,7 +102,7 @@ class FavoriteCocktailsFragment : Fragment(), FavoriteCocktailsAdapter.CocktailI
     }
 
     override fun onCocktailClick(cocktailId: Int){
-        findNavController().navigate(R.id.action_favoriteCocktailsFragment_to_detailedCocktailFragment,
+        findNavController().navigate(R.id.action_favoriteCocktailsFragment_to_detailedFavoriteCocktailFragment,
             bundleOf("idDrink" to cocktailId))
     }
 }

@@ -8,18 +8,18 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
-                  <entry key="allCocktailsByIngredientFragment2">
+                  <entry key="allCocktailsByIngredientFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="338" />
-                            <option name="y" value="630" />
+                            <option name="x" value="301" />
+                            <option name="y" value="322" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_allCocktailsByIngredientFragment2_to_detailedCocktailFragment">
+                            <entry key="action_allCocktailsByIngredientFragment_to_detailedCocktailFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -34,34 +34,13 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-102" />
-                            <option name="y" value="-42" />
+                            <option name="x" value="21" />
+                            <option name="y" value="504" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_allCocktailsByNameFragment_to_detailedCocktailFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="allCocktailsFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="420" />
-                            <option name="y" value="262" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_allCocktailsFragment_to_detailedCocktailFragment2">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -83,6 +62,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="detailedFavoriteCocktailFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="573" />
+                            <option name="y" value="443" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="favoriteCocktailsFragment">
                     <value>
                       <LayoutPositions>
@@ -91,6 +82,15 @@
                             <option name="x" value="-477" />
                             <option name="y" value="584" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_favoriteCocktailsFragment_to_detailedCocktailFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -107,53 +107,6 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_getRandomCocktailFragment_to_detailedCocktailFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="searchByIngredientFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="112" />
-                            <option name="y" value="328" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_searchByIngredientFragment_to_allCocktailsByIngredientFragment2">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
-                      </LayoutPositions>
-                    </value>
-                  </entry>
-                  <entry key="searchByNameFragment">
-                    <value>
-                      <LayoutPositions>
-                        <option name="myPosition">
-                          <Point>
-                            <option name="x" value="-244" />
-                            <option name="y" value="288" />
-                          </Point>
-                        </option>
-                        <option name="myPositions">
-                          <map>
-                            <entry key="action_searchByNameFragment_to_allCocktailsByNameFragment">
-                              <value>
-                                <LayoutPositions />
-                              </value>
-                            </entry>
-                            <entry key="action_searchByNameFragment_to_allCocktailsByNameFragment2">
                               <value>
                                 <LayoutPositions />
                               </value>
