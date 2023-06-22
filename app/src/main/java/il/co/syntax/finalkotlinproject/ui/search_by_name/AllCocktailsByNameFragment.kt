@@ -53,15 +53,8 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
 
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
-                    if (it.status.data == null)
-                    {
-                        val emptyList: List<Cocktail> = emptyList()
-
-                        adapter.setCocktails(emptyList)
-                    }
-                    else
-                    {
-                        adapter.setCocktails(it.status.data!!.drinks)
+                    it.status.data?.let {
+                        adapter.setCocktails(it.drinks)
                     }
                 }
 
