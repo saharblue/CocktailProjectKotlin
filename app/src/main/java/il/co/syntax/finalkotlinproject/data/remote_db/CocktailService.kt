@@ -12,7 +12,7 @@ interface CocktailService {
     suspend fun getAllCocktails() : Response<AllCocktailResults>
 
     @GET("random.php")
-    suspend fun getRandomCocktail() : Response<AllCocktailResults>
+    suspend fun getRandomCocktail() : Response<DetailedCocktail>
 
     @GET("lookup.php")
     suspend fun getCocktail(@Query("i") id : Int) : Response<DetailedCocktail>

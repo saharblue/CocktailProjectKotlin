@@ -34,20 +34,16 @@ class GetRandomCocktailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.randomizeButton.setOnClickListener {
-            onButtonClick(binding.randomizeButton.text.toString())
+            onButtonClick(-1)
         }
     }
 
 
 
-    private fun onButtonClick(cocktailName: String){
-        // Hide the keyboard
-        val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
-        imm?.hideSoftInputFromWindow(binding.root.windowToken, 0)
-
+    private fun onButtonClick(idDrink: Int){
         findNavController().navigate(
-            R.id.action_searchByIngredientFragment_to_allCocktailsByIngredientFragment2,
-            bundleOf("cocktailName" to cocktailName)
+            R.id.action_getRandomCocktailFragment_to_detailedCocktailFragment,
+            bundleOf("idDrink" to idDrink)
         )
     }
 

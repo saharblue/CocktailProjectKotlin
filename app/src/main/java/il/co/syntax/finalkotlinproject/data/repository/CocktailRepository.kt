@@ -41,6 +41,10 @@ class CocktailRepository @Inject constructor(
         remoteDataSource.getCocktailsByIngredient(name)
     }
 
+    fun getRandomCocktailFromRemote() = performFetchingFromRemote {
+        remoteDataSource.getRandomCocktail()
+    }
+
 
     fun getCocktailsByIngredient(name : String) = performFetchingAndSaving(
         {

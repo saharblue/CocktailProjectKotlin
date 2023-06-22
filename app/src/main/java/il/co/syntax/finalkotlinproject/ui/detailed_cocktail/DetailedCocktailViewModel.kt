@@ -16,8 +16,12 @@ class DetailedCocktailViewModel @Inject constructor(
     private val cocktailRepository: CocktailRepository): ViewModel(){
     private val _id = MutableLiveData<Int>()
 
-    private val _cocktail = _id.switchMap {
-        cocktailRepository.getCocktailsByIdFromRemote(it)
+    private val _cocktail = _id.switchMap { id ->
+        if (id != -1) {
+            cocktailRepository.getCocktailsByIdFromRemote(id)
+        } else {
+            cocktailRepository.getRandomCocktailFromRemote()
+        }
     }
 
     val cocktail : LiveData<Resource<DetailedCocktail>> = _cocktail
