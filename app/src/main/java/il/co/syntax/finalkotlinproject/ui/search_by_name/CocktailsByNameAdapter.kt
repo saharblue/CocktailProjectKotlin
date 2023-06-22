@@ -43,13 +43,8 @@ class CocktailsByNameAdapter(private val listener : CocktailItemListener) :
 
     fun setCocktails(cocktails : Collection<Cocktail>) {
         this.cocktails.clear()
-        if (cocktails.isEmpty()) {
-            println("cocktails is empty")
-        }
-        else {
-            this.cocktails.addAll(cocktails)
-            notifyDataSetChanged()
-        }
+        this.cocktails.addAll(cocktails)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CocktailViewHolder {
