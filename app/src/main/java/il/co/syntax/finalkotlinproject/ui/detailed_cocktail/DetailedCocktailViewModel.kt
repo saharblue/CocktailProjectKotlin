@@ -7,6 +7,7 @@ import androidx.lifecycle.switchMap
 import il.co.syntax.finalkotlinproject.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
+import il.co.syntax.finalkotlinproject.data.models.DetailedCocktail
 import il.co.syntax.finalkotlinproject.data.repository.CocktailRepository
 import javax.inject.Inject
 
@@ -16,10 +17,10 @@ class DetailedCocktailViewModel @Inject constructor(
     private val _id = MutableLiveData<Int>()
 
     private val _cocktail = _id.switchMap {
-        cocktailRepository.getCocktail(it)
+        cocktailRepository.getCocktailsByIdFromRemote(it)
     }
 
-    val cocktail : LiveData<Resource<Cocktail>> = _cocktail
+    val cocktail : LiveData<Resource<DetailedCocktail>> = _cocktail
 
     fun setId(id: Int) {
         _id.value = id

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import dagger.hilt.android.lifecycle.HiltViewModel
-import il.co.syntax.finalkotlinproject.data.models.Cocktail
+import il.co.syntax.finalkotlinproject.data.models.AllCocktailResults
 import il.co.syntax.finalkotlinproject.data.repository.CocktailRepository
 import il.co.syntax.finalkotlinproject.utils.Resource
 import javax.inject.Inject
@@ -17,10 +17,11 @@ class AllCocktailsByNameViewModel @Inject constructor(
     private val _name = MutableLiveData<String>()
 
     private val _cocktails = _name.switchMap {
-        cocktailRepository.getCocktailsByName(it)
+        cocktailRepository.getCocktailsByNameFromRemote(it)
     }
 
-    val cocktails : LiveData<Resource<List<Cocktail>>> = _cocktails
+    val cocktails : LiveData<Resource<AllCocktailResults>> = _cocktails
+
 
     fun setName(name: String) {
         _name.value = name

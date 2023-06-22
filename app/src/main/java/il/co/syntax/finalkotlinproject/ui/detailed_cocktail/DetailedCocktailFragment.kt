@@ -43,7 +43,7 @@ class DetailedCocktailFragment : Fragment() {
             when(it.status) {
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
-                    updateCocktail(it.status.data!!)
+                    updateCocktail(it.status.data!!.drinks[0])
                     binding.cocktailCl.visibility = View.VISIBLE
                 }
                 is Loading -> {

@@ -52,11 +52,12 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
 
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
-                    adapter.setCocktails(it.status.data!!)
+                    adapter.setCocktails(it.status.data!!.drinks)
                 }
 
                 is Error -> {
                     binding.progressBar.visibility = View.GONE
+                    println(it.status.message)
                     Toast.makeText(requireContext(),it.status.message, Toast.LENGTH_LONG).show()
                 }
             }
