@@ -13,4 +13,11 @@
     <string name="random_cocktail_title">Get a random cocktail</string>
     <string name="random_cocktail_button">Randomize</string>
 
+    <!-- Dialog strings-->
+    <string name="chore_title">name</string>
+    <string name="delete_dialog_title">Delete</string>
+    <string name="delete_dialog_message">Are you sure you want to delete?</string>
+    <string name="delete_dialog_pos">Yes</string>
+    <string name="delete_dialog_neg">No</string>
+
 </resources>

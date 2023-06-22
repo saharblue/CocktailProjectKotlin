@@ -51,6 +51,8 @@ class FavoriteCocktailsAdapter(private val listener : CocktailItemListener) :
         return CocktailViewHolder(binding,listener)
     }
 
+    fun cocktailAt(position: Int) = cocktails[position]
+
     override fun onBindViewHolder(holder: CocktailViewHolder, position: Int) =
         holder.bind(cocktails[position])
 
