@@ -95,4 +95,17 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/favoriteCocktailsFragment"
+        android:name="il.co.syntax.finalkotlinproject.ui.favorites.FavoriteCocktailsFragment"
+        android:label="favorite_cocktails_fragment"
+        tools:layout="@layout/favorite_cocktails_fragment" >
+        <action
+            android:id="@+id/action_favoriteCocktailsFragment_to_detailedCocktailFragment"
+            app:destination="@id/detailedCocktailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
 </navigation>
