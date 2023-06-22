@@ -86,5 +86,13 @@
         android:id="@+id/getRandomCocktailFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.random_cocktail.GetRandomCocktailFragment"
         android:label="get_random_cocktail"
-        tools:layout="@layout/get_random_cocktail_fragment" />
+        tools:layout="@layout/get_random_cocktail_fragment" >
+        <action
+            android:id="@+id/action_getRandomCocktailFragment_to_detailedCocktailFragment"
+            app:destination="@id/detailedCocktailFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"/>
+    </fragment>
 </navigation>

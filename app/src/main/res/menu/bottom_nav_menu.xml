@@ -16,8 +16,8 @@
         android:title="Favorites" />
 
     <item
-        android:id="@+id/randomCocktailFragment"
+        android:id="@+id/getRandomCocktailFragment"
         android:icon="@drawable/ic_launcher_foreground"
-        android:title="Favorites" />
+        android:title="Random" />
 
 </menu>

@@ -2,7 +2,6 @@ package il.co.syntax.finalkotlinproject.data.repository
 
 import il.co.syntax.finalkotlinproject.data.loca_db.CocktailDao
 import il.co.syntax.finalkotlinproject.data.loca_db.IngredientResultsDao
-import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.data.remote_db.CocktailRemoteDataSource
 import il.co.syntax.finalkotlinproject.utils.performFetchingFromRemote
 import il.co.syntax.finalkotlinproject.utils.performFetchingAndSaving
@@ -43,4 +42,7 @@ class CocktailRepository @Inject constructor(
 
     suspend fun insertCocktailToLocal(cocktail: Cocktail) = localDataSource.insertCocktail(cocktail)
 
+    fun getRandomCocktailFromRemote() = performFetchingFromRemote {
+        remoteDataSource.getRandomCocktail()
+    }
 }

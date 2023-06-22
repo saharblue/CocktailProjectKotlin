@@ -9,6 +9,7 @@ class CocktailRemoteDataSource @Inject constructor(
 
     suspend fun getCocktails() = getResult { cocktailService.getAllCocktails() }
     suspend fun getCocktail(id : Int) = getResult { cocktailService.getCocktail(id) }
+    suspend fun getRandomCocktail() = getResult { cocktailService.getRandomCocktail() }
     suspend fun getCocktailsByName(name : String) = getResult {
         cocktailService.getCocktailsByName(name) }
     suspend fun getCocktailsByIngredient(name : String) = getResult {
