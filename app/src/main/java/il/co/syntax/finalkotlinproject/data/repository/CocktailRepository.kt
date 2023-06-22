@@ -3,7 +3,7 @@ package il.co.syntax.finalkotlinproject.data.repository
 import il.co.syntax.finalkotlinproject.data.loca_db.CocktailDao
 import il.co.syntax.finalkotlinproject.data.loca_db.IngredientResultsDao
 import il.co.syntax.finalkotlinproject.data.remote_db.CocktailRemoteDataSource
-import il.co.syntax.finalkotlinproject.utils.performFetching
+import il.co.syntax.finalkotlinproject.utils.performFetchingFromRemote
 import il.co.syntax.finalkotlinproject.utils.performFetchingAndSaving
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -28,21 +28,17 @@ class CocktailRepository @Inject constructor(
         {remoteDataSource.getCocktail(id)},
         {localDataSource.insertCocktail(it.drinks[0])}
     )
-//
-//    fun getCocktailsByName(name : String) = performFetchingAndSaving(
-//        {localDataSource.getCocktailsByName(name)},
-//        {
-//            localDataSource.deleteAllCocktails()
-//            remoteDataSource.getCocktailsByName(name)
-//        },
-//        {localDataSource.insertCocktails(it.drinks)},
-//    )
-    fun getCocktailsByNameFromRemote(name : String) = performFetching {
+
+    fun getCocktailsByNameFromRemote(name : String) = performFetchingFromRemote {
         remoteDataSource.getCocktailsByName(name)
     }
 
-    fun getCocktailsByIdFromRemote(id : Int) = performFetching {
+    fun getCocktailsByIdFromRemote(id : Int) = performFetchingFromRemote {
         remoteDataSource.getCocktail(id)
+    }
+
+    fun getCocktailsByIngredientFromRemote(name : String) = performFetchingFromRemote {
+        remoteDataSource.getCocktailsByIngredient(name)
     }
 
 
@@ -58,10 +54,5 @@ class CocktailRepository @Inject constructor(
         {ingredientLocalDataSource.insertResults(it.drinks)},
     )
 
-    fun getCocktailByIngredient(id : Int) = performFetchingAndSaving(
-        { ingredientLocalDataSource.getResult(id)},
-        {remoteDataSource.getCocktail(id)},
-        {localDataSource.insertCocktails(it.drinks)}
-    )
 
 }

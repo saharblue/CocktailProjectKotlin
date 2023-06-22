@@ -27,7 +27,7 @@ fun <T,A> performFetchingAndSaving(localDbFetch: () -> LiveData<T>,
         }
     }
 
-fun <A> performFetching(remoteDbFetch: suspend () ->Resource<A>) : LiveData<Resource<A>> =
+fun <A> performFetchingFromRemote(remoteDbFetch: suspend () ->Resource<A>) : LiveData<Resource<A>> =
 
     liveData(Dispatchers.IO) {
 
@@ -42,5 +42,31 @@ fun <A> performFetching(remoteDbFetch: suspend () ->Resource<A>) : LiveData<Reso
             is Error -> {
                 emit(Resource.error(fetchResource.status.message))
             }
+            is Loading -> {
+
+            }
         }
     }
+
+fun <T> performFetchingFromLocal(localDbFetch: () -> LiveData<T>): LiveData<Resource<T>> =
+
+    liveData(Dispatchers.IO) {
+
+        emit(Resource.loading())
+
+        val source = localDbFetch().map { Resource.success(it) }
+        emitSource(source)
+    }
+
+suspend fun <A> performFetchingFromRemoteAndSavingOnLocal(remoteDbFetch: suspend () ->Resource<A>,
+                                         localDbSave: suspend (A) -> Unit) {
+
+    val fetchResource = remoteDbFetch()
+
+    if (fetchResource.status is Success) {
+        localDbSave(fetchResource.status.data!!)
+    } else if(fetchResource.status is Error) {
+        println("Error fetching data: ${fetchResource.status.message}")
+    }
+}
+

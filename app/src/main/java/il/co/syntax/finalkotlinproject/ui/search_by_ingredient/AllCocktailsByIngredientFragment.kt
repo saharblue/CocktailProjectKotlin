@@ -56,7 +56,7 @@ class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapte
 
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
-                    adapter.setCocktails(it.status.data!!)
+                    adapter.setCocktails(it.status.data!!.drinks)
                 }
 
                 is Error -> {
