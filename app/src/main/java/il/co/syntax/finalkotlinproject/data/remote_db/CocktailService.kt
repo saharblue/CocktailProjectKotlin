@@ -8,9 +8,6 @@ import retrofit2.http.Query
 
 interface CocktailService {
 
-    @GET("search.php?s=margarita")
-    suspend fun getAllCocktails() : Response<AllCocktailResults>
-
     @GET("random.php")
     suspend fun getRandomCocktail() : Response<DetailedCocktail>
 

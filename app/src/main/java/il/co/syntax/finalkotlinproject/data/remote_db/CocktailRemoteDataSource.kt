@@ -7,7 +7,6 @@ import javax.inject.Singleton
 class CocktailRemoteDataSource @Inject constructor(
     private val cocktailService: CocktailService) : BaseDataSource() {
 
-    suspend fun getCocktails() = getResult { cocktailService.getAllCocktails() }
     suspend fun getCocktail(id : Int) = getResult { cocktailService.getCocktail(id) }
     suspend fun getRandomCocktail() = getResult { cocktailService.getRandomCocktail() }
     suspend fun getCocktailsByName(name : String) = getResult {

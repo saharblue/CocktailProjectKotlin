@@ -49,6 +49,3 @@ data class Cocktail (
     val strMeasure14 : String?,
     val strMeasure15 : String?,
     )
-{
-
-}

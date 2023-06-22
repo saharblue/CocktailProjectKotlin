@@ -12,6 +12,4 @@ data class IngredientResult (
     val image : String?,
     @PrimaryKey
     val idDrink : Int,
-){
-
-}
+)
