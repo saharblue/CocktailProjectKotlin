@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import il.co.syntax.finalkotlinproject.R
+import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.databinding.CocktailsByNameFragmentBinding
 import il.co.syntax.finalkotlinproject.databinding.CocktailsFragmentBinding
 import il.co.syntax.finalkotlinproject.ui.all_cocktails.CocktailsAdapter
@@ -52,7 +53,16 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
 
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
-                    adapter.setCocktails(it.status.data!!.drinks)
+                    if (it.status.data == null)
+                    {
+                        val emptyList: List<Cocktail> = emptyList()
+
+                        adapter.setCocktails(emptyList)
+                    }
+                    else
+                    {
+                        adapter.setCocktails(it.status.data!!.drinks)
+                    }
                 }
 
                 is Error -> {
