@@ -82,4 +82,9 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
     </fragment>
+    <fragment
+        android:id="@+id/getRandomCocktailFragment"
+        android:name="il.co.syntax.finalkotlinproject.ui.random_cocktail.GetRandomCocktailFragment"
+        android:label="get_random_cocktail"
+        tools:layout="@layout/get_random_cocktail" />
 </navigation>

@@ -8,4 +8,8 @@
     <string name="ingredients_title">Ingredients:</string>
     <string name="instructions_title">Instructions:</string>
 
+<!--    get random cocktail-->
+    <string name="random_cocktail_title">Get a random cocktail</string>
+    <string name="random_cocktail_button">Randomize</string>
+
 </resources>

@@ -37,7 +37,6 @@ class DetailedCocktailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
         viewModel.cocktail.observe(viewLifecycleOwner) {
 
             when(it.status) {
