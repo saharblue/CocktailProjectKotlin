@@ -11,7 +11,7 @@
         android:title="Search by name" />
 
     <item
-        android:id="@+id/favoritesCocktailsFragment"
+        android:id="@+id/favoriteCocktailsFragment"
         android:icon="@drawable/ic_launcher_foreground"
         android:title="Favorites" />
 
