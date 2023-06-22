@@ -33,8 +33,8 @@ class GetRandomCocktailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.searchButton.setOnClickListener {
-            onButtonClick(binding.searchCocktail.text.toString())
+        binding.randomizeButton.setOnClickListener {
+            onButtonClick(binding.randomizeButton.text.toString())
         }
     }
 
