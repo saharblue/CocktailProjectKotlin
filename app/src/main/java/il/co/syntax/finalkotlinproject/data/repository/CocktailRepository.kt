@@ -41,6 +41,8 @@ class CocktailRepository @Inject constructor(
 
     suspend fun insertCocktailToLocal(cocktail: Cocktail) = localDataSource.insertCocktail(cocktail)
 
+    suspend fun deleteCocktailFromLocal(cocktail: Cocktail) = localDataSource.deleteCocktail(cocktail)
+
     fun getFavoritesCocktailsFromLocal() = performFetchingFromLocal {
         localDataSource.getAllCocktails()
     }

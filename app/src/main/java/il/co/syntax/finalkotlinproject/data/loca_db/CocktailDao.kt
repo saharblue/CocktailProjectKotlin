@@ -1,10 +1,7 @@
 package il.co.syntax.finalkotlinproject.data.loca_db
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
 
 @Dao
@@ -27,4 +24,8 @@ interface CocktailDao {
 
     @Query("DELETE FROM cocktails")
     suspend fun deleteAllCocktails()
+
+    @Delete
+    suspend fun deleteCocktail(cocktail: Cocktail)
+
 }
