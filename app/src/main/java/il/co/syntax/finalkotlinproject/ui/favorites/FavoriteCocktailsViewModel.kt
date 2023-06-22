@@ -14,16 +14,6 @@ import javax.inject.Inject
 class FavoriteCocktailsViewModel @Inject constructor(
     private val cocktailRepository: CocktailRepository
 ) : ViewModel() {
-    private val _name = MutableLiveData<String>()
 
-    private val _cocktails = _name.switchMap {
-        cocktailRepository.getCocktailsByNameFromRemote(it)
-    }
-
-    val cocktails : LiveData<Resource<AllCocktailResults>> = _cocktails
-
-
-    fun setName(name: String) {
-        _name.value = name
-    }
+    val cocktails  = cocktailRepository.getFavoritesCocktailsFromLocal()
 }

@@ -50,7 +50,7 @@ class FavoriteCocktailsFragment : Fragment(), FavoriteCocktailsAdapter.CocktailI
 
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
-                    adapter.setCocktails(it.status.data!!.drinks)
+                    adapter.setCocktails(it.status.data!!)
                 }
 
                 is Error -> {
@@ -60,9 +60,7 @@ class FavoriteCocktailsFragment : Fragment(), FavoriteCocktailsAdapter.CocktailI
                 }
             }
         }
-        arguments?.getString("cocktailName")?.let {
-            viewModel.setName(it)
-        }
+
     }
 
     override fun onCocktailClick(cocktailId: Int){

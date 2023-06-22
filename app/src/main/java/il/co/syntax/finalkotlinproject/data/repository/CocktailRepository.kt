@@ -5,6 +5,7 @@ import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.data.remote_db.CocktailRemoteDataSource
 import il.co.syntax.finalkotlinproject.utils.performFetchingFromRemote
 import il.co.syntax.finalkotlinproject.utils.performFetchingAndSaving
+import il.co.syntax.finalkotlinproject.utils.performFetchingFromLocal
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -39,6 +40,10 @@ class CocktailRepository @Inject constructor(
     }
 
     suspend fun insertCocktailToLocal(cocktail: Cocktail) = localDataSource.insertCocktail(cocktail)
+
+    fun getFavoritesCocktailsFromLocal() = performFetchingFromLocal {
+        localDataSource.getAllCocktails()
+    }
 
     fun getRandomCocktailFromRemote() = performFetchingFromRemote {
         remoteDataSource.getRandomCocktail()
