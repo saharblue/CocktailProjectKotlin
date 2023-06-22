@@ -13,10 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import il.co.syntax.finalkotlinproject.R
 import il.co.syntax.finalkotlinproject.databinding.CocktailsByNameFragmentBinding
-import il.co.syntax.finalkotlinproject.databinding.CocktailsFragmentBinding
-import il.co.syntax.finalkotlinproject.ui.all_cocktails.CocktailsAdapter
-import il.co.syntax.finalkotlinproject.ui.detailed_cocktail.DetailedCocktailFragment
-import il.co.syntax.finalkotlinproject.ui.detailed_cocktail.DetailedCocktailViewModel
 import il.co.syntax.finalkotlinproject.utils.Error
 import il.co.syntax.finalkotlinproject.utils.Loading
 import il.co.syntax.finalkotlinproject.utils.Success

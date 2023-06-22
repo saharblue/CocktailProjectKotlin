@@ -8,14 +8,10 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import il.co.syntax.finalkotlinproject.R
-import il.co.syntax.finalkotlinproject.databinding.CocktailDetailFragmentBinding
 import il.co.syntax.finalkotlinproject.databinding.SearchByNameFragmentBinding
-import il.co.syntax.finalkotlinproject.ui.all_cocktails.CocktailsAdapter
-import il.co.syntax.finalkotlinproject.ui.detailed_cocktail.DetailedCocktailViewModel
 import il.co.syntax.fullarchitectureretrofithiltkotlin.utils.autoCleared
 
 @AndroidEntryPoint

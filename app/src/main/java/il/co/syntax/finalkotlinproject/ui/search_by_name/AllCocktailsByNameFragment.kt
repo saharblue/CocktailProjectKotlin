@@ -12,10 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import il.co.syntax.finalkotlinproject.R
-import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.databinding.CocktailsByNameFragmentBinding
-import il.co.syntax.finalkotlinproject.databinding.CocktailsFragmentBinding
-import il.co.syntax.finalkotlinproject.ui.all_cocktails.CocktailsAdapter
 import il.co.syntax.finalkotlinproject.utils.Error
 import il.co.syntax.finalkotlinproject.utils.Loading
 import il.co.syntax.finalkotlinproject.utils.Success
@@ -53,8 +50,8 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
 
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
-                    it.status.data?.let {
-                        adapter.setCocktails(it.drinks)
+                    it.status.data!!.drinks?.let {
+                        adapter.setCocktails(it)
                     }
                 }
 
