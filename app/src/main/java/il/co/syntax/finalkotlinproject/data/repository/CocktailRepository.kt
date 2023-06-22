@@ -2,6 +2,7 @@ package il.co.syntax.finalkotlinproject.data.repository
 
 import il.co.syntax.finalkotlinproject.data.loca_db.CocktailDao
 import il.co.syntax.finalkotlinproject.data.loca_db.IngredientResultsDao
+import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.data.remote_db.CocktailRemoteDataSource
 import il.co.syntax.finalkotlinproject.utils.performFetchingFromRemote
 import il.co.syntax.finalkotlinproject.utils.performFetchingAndSaving
@@ -14,7 +15,6 @@ import javax.inject.Singleton
 class CocktailRepository @Inject constructor(
     private val remoteDataSource : CocktailRemoteDataSource,
     private val localDataSource : CocktailDao,
-    private val ingredientLocalDataSource : IngredientResultsDao
 ){
 
     fun getCocktails() = performFetchingAndSaving(
@@ -41,18 +41,6 @@ class CocktailRepository @Inject constructor(
         remoteDataSource.getCocktailsByIngredient(name)
     }
 
-
-    fun getCocktailsByIngredient(name : String) = performFetchingAndSaving(
-        {
-            ingredientLocalDataSource.getAllResults()},
-        {
-            withContext(Dispatchers.IO) {
-                ingredientLocalDataSource.deleteAllResults()
-            }
-            remoteDataSource.getCocktailsByIngredient(name)
-        },
-        {ingredientLocalDataSource.insertResults(it.drinks)},
-    )
-
+    suspend fun insertCocktailToLocal(cocktail: Cocktail) = localDataSource.insertCocktail(cocktail)
 
 }

@@ -3,7 +3,9 @@ package il.co.syntax.finalkotlinproject.utils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 fun <T,A> performFetchingAndSaving(localDbFetch: () -> LiveData<T>,
                                     remoteDbFetch: suspend () ->Resource<A>,
@@ -58,15 +60,6 @@ fun <T> performFetchingFromLocal(localDbFetch: () -> LiveData<T>): LiveData<Reso
         emitSource(source)
     }
 
-suspend fun <A> performFetchingFromRemoteAndSavingOnLocal(remoteDbFetch: suspend () ->Resource<A>,
-                                         localDbSave: suspend (A) -> Unit) {
 
-    val fetchResource = remoteDbFetch()
 
-    if (fetchResource.status is Success) {
-        localDbSave(fetchResource.status.data!!)
-    } else if(fetchResource.status is Error) {
-        println("Error fetching data: ${fetchResource.status.message}")
-    }
-}
 

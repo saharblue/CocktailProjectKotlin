@@ -22,6 +22,7 @@ class DetailedCocktailFragment : Fragment() {
 
     private val viewModel : DetailedCocktailViewModel by viewModels()
     private var binding: CocktailDetailFragmentBinding by autoCleared()
+    private lateinit var cocktail: Cocktail
 
 
     override fun onCreateView(
@@ -43,6 +44,7 @@ class DetailedCocktailFragment : Fragment() {
                 is Success -> {
                     binding.progressBar.visibility = View.GONE
                     updateCocktail(it.status.data!!.drinks[0])
+                    cocktail = it.status.data.drinks[0]
                     binding.cocktailCl.visibility = View.VISIBLE
                 }
                 is Loading -> {
@@ -51,7 +53,6 @@ class DetailedCocktailFragment : Fragment() {
                 }
                 is Error -> {
                     binding.progressBar.visibility = View.GONE
-                    println(it.status.message)
                     Toast.makeText(requireContext(),it.status.message, Toast.LENGTH_LONG).show()
                 }
             }
@@ -62,7 +63,12 @@ class DetailedCocktailFragment : Fragment() {
             viewModel.setId(it)
         }
 
+        binding.addToFavoritesButton.setOnClickListener {
+            viewModel.addToFavorites(cocktail)
+        }
+
     }
+
 
     @SuppressLint("SetTextI18n")
     private fun updateCocktail(cocktail: Cocktail) {
