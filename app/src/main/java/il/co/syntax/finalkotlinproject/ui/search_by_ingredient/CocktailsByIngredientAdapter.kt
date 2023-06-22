@@ -64,22 +64,3 @@ class CocktailsByIngredientAdapter(private val listener : CocktailItemListener) 
     }
 }
 
-
-/* inner class CharacterViewHolder(private val itemBinding : ItemCharacterBinding) : RecyclerView.ViewHolder(itemBinding.root) {
-
-     val nameTv = itemBinding.name
-     val speciesAndStatusTv = itemBinding.speciesAndStatus
-     val characterImageView = itemBinding.image
-
-     init {
-         itemBinding.root.setOnClickListener {
-             listener.onCharacterClick(characters[adapterPosition].id)
-         }
-     }
- }
-
-  val character = characters[position]
-        holder.nameTv.text = character.name
-        holder.speciesAndStatusTv.text = "${character.species} ${character.status}"
-        Glide.with(holder.itemView.context).load(character.picture).circleCrop().into(holder.characterImageView)
-*/

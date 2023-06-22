@@ -1,6 +1,8 @@
 package il.co.syntax.finalkotlinproject.ui.search_by_name
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,6 +35,20 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
         savedInstanceState: Bundle?
     ): View? {
         binding = CocktailsByNameFragmentBinding.inflate(inflater,container,false)
+        binding.searchName.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                if (p0.toString().length > 2)
+                {
+                    viewModel.setName(p0.toString())
+                }
+            }
+        })
         return binding.root
     }
 
@@ -41,8 +57,8 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
         super.onViewCreated(view, savedInstanceState)
 
         adapter = CocktailsByNameAdapter(this)
-        binding.charactersRv.layoutManager = LinearLayoutManager(requireContext())
-        binding.charactersRv.adapter = adapter
+        binding.cocktailsRv.layoutManager = LinearLayoutManager(requireContext())
+        binding.cocktailsRv.adapter = adapter
 
         viewModel.cocktails.observe(viewLifecycleOwner) {
             when(it.status) {
