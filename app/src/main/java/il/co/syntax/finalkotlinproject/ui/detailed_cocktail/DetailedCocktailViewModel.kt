@@ -1,9 +1,6 @@
 package il.co.syntax.finalkotlinproject.ui.detailed_cocktail
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.switchMap
+import androidx.lifecycle.*
 import il.co.syntax.finalkotlinproject.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
@@ -34,7 +31,7 @@ class DetailedCocktailViewModel @Inject constructor(
     }
 
     fun addToFavorites(cocktail: Cocktail) {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch {
             cocktailRepository.insertCocktailToLocal(cocktail)
         }
     }
