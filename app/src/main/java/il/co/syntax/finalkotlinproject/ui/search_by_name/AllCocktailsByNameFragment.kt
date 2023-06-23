@@ -104,6 +104,7 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
 
     private fun loadingResults()
     {
+        binding.cocktailVector.visibility = View.GONE
         binding.cocktailsRv.visibility = View.GONE
         binding.noResultsTitle.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
