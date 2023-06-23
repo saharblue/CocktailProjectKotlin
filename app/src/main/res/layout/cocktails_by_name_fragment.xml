@@ -27,6 +27,24 @@
                 android:hint="search name" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout"
+            app:layout_constraintStart_toStartOf="@id/textInputLayout"
+            app:layout_constraintBottom_toTopOf="@id/cocktails_rv">
+
+            <TextView
+                android:id="@+id/no_results_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No Results"
+                android:textSize="25sp"/>
+
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cocktails_rv"
             android:layout_width="0dp"

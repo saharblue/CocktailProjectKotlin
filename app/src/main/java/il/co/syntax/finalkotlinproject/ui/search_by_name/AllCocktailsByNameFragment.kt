@@ -35,6 +35,8 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
         savedInstanceState: Bundle?
     ): View? {
         binding = CocktailsByNameFragmentBinding.inflate(inflater,container,false)
+        showItems()
+        viewModel.setName("")
         binding.searchName.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -43,10 +45,7 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (p0.toString().length > 2)
-                {
                     viewModel.setName(p0.toString())
-                }
             }
         })
         return binding.root
@@ -62,26 +61,52 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
 
         viewModel.cocktails.observe(viewLifecycleOwner) {
             when(it.status) {
-                is Loading -> binding.progressBar.visibility = View.VISIBLE
+                is Loading -> loadingResults()
 
                 is Success -> {
-                    binding.progressBar.visibility = View.GONE
-                    it.status.data!!.drinks?.let {
-                        adapter.setCocktails(it)
+                    if (it.status.data!!.drinks != null)
+                    {
+                        showItems()
+                        adapter.setCocktails(it.status.data.drinks!!)
                     }
+                    else
+                    {
+                        noResults()
+                    }
+
                 }
 
-                is Error -> {
-                    binding.progressBar.visibility = View.GONE
-                    println(it.status.message)
-                    Toast.makeText(requireContext(),it.status.message, Toast.LENGTH_LONG).show()
-                }
+                is Error -> noResults()
+
             }
         }
         arguments?.getString("cocktailName")?.let {
             viewModel.setName(it)
         }
+
     }
+
+    private fun showItems()
+    {
+        binding.cocktailsRv.visibility = View.VISIBLE
+        binding.noResultsTitle.visibility = View.GONE
+        binding.progressBar.visibility = View.GONE
+    }
+
+    private fun noResults()
+    {
+        binding.cocktailsRv.visibility = View.GONE
+        binding.noResultsTitle.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.GONE
+    }
+
+    private fun loadingResults()
+    {
+        binding.cocktailsRv.visibility = View.GONE
+        binding.noResultsTitle.visibility = View.GONE
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
 
     override fun onCocktailClick(cocktailId: Int){
         findNavController().navigate(R.id.action_allCocktailsByNameFragment_to_detailedCocktailFragment,

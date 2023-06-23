@@ -43,9 +43,4 @@ object AppModule {
     @Singleton
     fun provideCocktailDao(database: AppDatabase) = database.cocktailDao()
 
-    @Provides
-    @Singleton
-    fun provideIngredientResultDao(database: AppDatabase) = database.ingredientResultsDao()
-
-
 }

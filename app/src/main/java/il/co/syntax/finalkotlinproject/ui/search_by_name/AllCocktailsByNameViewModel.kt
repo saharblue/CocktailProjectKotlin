@@ -16,6 +16,7 @@ class AllCocktailsByNameViewModel @Inject constructor(
 ) : ViewModel() {
     private val _name = MutableLiveData<String>()
 
+
     private val _cocktails = _name.switchMap {
         cocktailRepository.getCocktailsByNameFromRemote(it)
     }
