@@ -1,6 +1,7 @@
 package il.co.syntax.finalkotlinproject.ui.detailed_favorite_cocktail
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -68,12 +69,13 @@ class DetailedFavoriteCocktailFragment : Fragment() {
 
         binding.removeFromFavoritesButton.setOnClickListener {
             viewModel.deleteCocktail(cocktail)
+            binding.removeFromFavoritesButton.isEnabled = false
+            binding.removeFromFavoritesButton.setBackgroundColor(Color.parseColor("#D3D3D3"))
         }
 
     }
 
 
-    @SuppressLint("SetTextI18n")
     private fun updateCocktail(cocktail: Cocktail) {
         val measures = arrayOf(cocktail.strMeasure1, cocktail.strMeasure2, cocktail.strMeasure3, cocktail.strMeasure4, cocktail.strMeasure5,
             cocktail.strMeasure6, cocktail.strMeasure7, cocktail.strMeasure8, cocktail.strMeasure9, cocktail.strMeasure10,
@@ -84,12 +86,13 @@ class DetailedFavoriteCocktailFragment : Fragment() {
             cocktail.strIngredient11, cocktail.strIngredient12, cocktail.strIngredient13, cocktail.strIngredient14, cocktail.strIngredient15)
 
         var ingredientsStr = ""
-
+        val formatString = "%s %s\n"
         for (i in measures.indices) {
             if (measures[i] != null && ingredients[i] != null) {
-                ingredientsStr += "${measures[i]} ${ingredients[i]}\n"
+                ingredientsStr += String.format(formatString, measures[i], ingredients[i])
             }
         }
+
 
         binding.name.text = cocktail.strDrink
         binding.cocktailName.text = cocktail.strDrink

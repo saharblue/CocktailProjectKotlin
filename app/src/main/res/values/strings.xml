@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">FinalKotlinProject</string>
+    <string name="app_name">MakeACocktail</string>
 
     <!--    cocktail detail fragment-->
+    <string name="cocktail_detail_fragment">Cocktail details</string>
     <string name="name_title">Name:</string>
     <string name="type_title">Type:</string>
     <string name="glass_title">Glass:</string>
@@ -10,10 +11,20 @@
     <string name="add_to_favorites_title">Add to favorites</string>
     <string name="remove_from_favorites_title">Remove from favorites</string>
 
+<!--    cocktail by name fragment-->
+    <string name="cocktail_by_name_fragment">Search by name</string>
+
+<!--    cocktail by ingredient fragment-->
+    <string name="cocktail_by_ingredient_fragment">Search by ingredient</string>
+
 
     <!--    get random cocktail-->
+    <string name="get_random_cocktail">Get a random cocktail</string>
     <string name="random_cocktail_title">Get a random cocktail</string>
     <string name="random_cocktail_button">Randomize</string>
+
+<!--    favorite cocktails fragment-->
+    <string name="favorite_cocktails_fragment">Favorite cocktails</string>
 
     <!-- Dialog strings-->
     <string name="chore_title">name</string>

@@ -8,13 +8,13 @@
     <fragment
         android:id="@+id/detailedCocktailFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.detailed_cocktail.DetailedCocktailFragment"
-        android:label="cocktail_detail_fragment"
+        android:label="@string/cocktail_detail_fragment"
         tools:layout="@layout/cocktail_detail_fragment" />
 
     <fragment
         android:id="@+id/allCocktailsByNameFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.search_by_name.AllCocktailsByNameFragment"
-        android:label="cocktails_by_name_fragment"
+        android:label="@string/cocktail_by_name_fragment"
         tools:layout="@layout/cocktails_by_name_fragment" >
         <action
             android:id="@+id/action_allCocktailsByNameFragment_to_detailedCocktailFragment"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/allCocktailsByIngredientFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.search_by_ingredient.AllCocktailsByIngredientFragment"
-        android:label="cocktails_by_ingredient_fragment"
+        android:label="@string/cocktail_by_ingredient_fragment"
         tools:layout="@layout/cocktails_by_ingredient_fragment" >
         <action
             android:id="@+id/action_allCocktailsByIngredientFragment_to_detailedCocktailFragment"
@@ -44,7 +44,7 @@
     <fragment
         android:id="@+id/getRandomCocktailFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.random_cocktail.GetRandomCocktailFragment"
-        android:label="get_random_cocktail"
+        android:label="@string/get_random_cocktail"
         tools:layout="@layout/get_random_cocktail_fragment" >
         <action
             android:id="@+id/action_getRandomCocktailFragment_to_detailedCocktailFragment"
@@ -58,7 +58,7 @@
     <fragment
         android:id="@+id/favoriteCocktailsFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.favorites.FavoriteCocktailsFragment"
-        android:label="favorite_cocktails_fragment"
+        android:label="@string/favorite_cocktails_fragment"
         tools:layout="@layout/favorite_cocktails_fragment" >
         <action
             android:id="@+id/action_favoriteCocktailsFragment_to_detailedFavoriteCocktailFragment"
@@ -71,6 +71,7 @@
     <fragment
         android:id="@+id/detailedFavoriteCocktailFragment"
         android:name="il.co.syntax.finalkotlinproject.ui.detailed_favorite_cocktail.DetailedFavoriteCocktailFragment"
-        android:label="DetailedFavoriteCocktailFragment" />
+        android:label="@string/cocktail_detail_fragment"
+        tools:layout="@layout/cocktail_favorite_detail_fragment"/>
 
 </navigation>

@@ -52,8 +52,16 @@ class FavoriteCocktailsFragment : Fragment(), FavoriteCocktailsAdapter.CocktailI
                 is Loading -> binding.progressBar.visibility = View.VISIBLE
 
                 is Success -> {
-                    binding.progressBar.visibility = View.GONE
-                    adapter.setCocktails(it.status.data!!)
+                    if (it.status.data!!.isNotEmpty())
+                    {
+                        showItems()
+                        adapter.setCocktails(it.status.data!!)
+                    }
+                    else
+                    {
+                        noResults()
+                    }
+
                 }
 
                 is Error -> {
@@ -99,6 +107,22 @@ class FavoriteCocktailsFragment : Fragment(), FavoriteCocktailsAdapter.CocktailI
             }
         }).attachToRecyclerView(binding.favoritesRv)
 
+    }
+
+    private fun showItems()
+    {
+        binding.favoritesRv.visibility = View.VISIBLE
+        binding.noResultsTitle.visibility = View.GONE
+        binding.cocktailVector.visibility = View.GONE
+        binding.progressBar.visibility = View.GONE
+    }
+
+    private fun noResults()
+    {
+        binding.favoritesRv.visibility = View.GONE
+        binding.noResultsTitle.visibility = View.VISIBLE
+        binding.cocktailVector.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.GONE
     }
 
     override fun onCocktailClick(cocktailId: Int){

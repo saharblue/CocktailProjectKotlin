@@ -90,6 +90,7 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
     {
         binding.cocktailsRv.visibility = View.VISIBLE
         binding.noResultsTitle.visibility = View.GONE
+        binding.cocktailVector.visibility = View.GONE
         binding.progressBar.visibility = View.GONE
     }
 
@@ -97,6 +98,7 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
     {
         binding.cocktailsRv.visibility = View.GONE
         binding.noResultsTitle.visibility = View.VISIBLE
+        binding.cocktailVector.visibility = View.VISIBLE
         binding.progressBar.visibility = View.GONE
     }
 

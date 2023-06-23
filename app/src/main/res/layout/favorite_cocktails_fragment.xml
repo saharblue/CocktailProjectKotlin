@@ -31,6 +31,33 @@
             android:indeterminate="true"
             android:visibility="gone"/>
 
+        <ImageView
+            android:id="@+id/cocktailVector"
+            android:layout_width="134dp"
+            android:layout_height="134dp"
+            android:src="@drawable/orange_heart_svgrepo_com"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/no_results_title"
+            app:layout_constraintVertical_bias="0.11" />
+
+        <TextView
+            android:id="@+id/no_results_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No favorites yet"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.255" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
