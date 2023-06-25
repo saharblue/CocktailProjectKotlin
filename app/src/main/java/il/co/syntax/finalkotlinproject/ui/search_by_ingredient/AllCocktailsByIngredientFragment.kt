@@ -35,6 +35,7 @@ class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapte
         savedInstanceState: Bundle?
     ): View? {
         binding = CocktailsByIngredientFragmentBinding.inflate(inflater,container,false)
+        displayNone()
         binding.searchIngredient.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
@@ -130,6 +131,17 @@ class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapte
         binding.noResultsTitle.visibility = View.GONE
         binding.progressBar.visibility = View.GONE
     }
+
+    private fun displayNone()
+    {
+        binding.noConnectionVector.visibility = View.GONE
+        binding.noConnectionTitle.visibility = View.GONE
+        binding.cocktailVector.visibility = View.GONE
+        binding.cocktailsRv.visibility = View.GONE
+        binding.noResultsTitle.visibility = View.GONE
+        binding.progressBar.visibility = View.GONE
+    }
+
     override fun onCocktailClick(cocktailId: Int){
         findNavController().navigate(R.id.action_allCocktailsByIngredientFragment_to_detailedCocktailFragment,
             bundleOf("idDrink" to cocktailId))
