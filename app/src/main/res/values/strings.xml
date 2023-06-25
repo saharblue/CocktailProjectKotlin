@@ -33,4 +33,9 @@
     <string name="delete_dialog_pos">Yes</string>
     <string name="delete_dialog_neg">No</string>
 
+<!--    connection error-->
+    <string name="connection_error">Connection error</string>
+    <string name="connection_error_message">Please check your internet connection and try again</string>
+    <string name="connection_error_button">Try again</string>
+
 </resources>
