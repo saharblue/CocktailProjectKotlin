@@ -49,8 +49,8 @@
         <action
             android:id="@+id/action_getRandomCocktailFragment_to_detailedCocktailFragment"
             app:destination="@id/detailedCocktailFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
+            app:enterAnim="@anim/from_zoom_in_to_zoom_out"
+            app:exitAnim="@anim/from_zoom_in_to_zoom_out"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right"/>
     </fragment>

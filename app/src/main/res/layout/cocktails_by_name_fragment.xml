@@ -79,7 +79,7 @@
             android:id="@+id/noConnectionVector"
             android:layout_width="134dp"
             android:layout_height="134dp"
-            android:src="@drawable/broken_glass_svgrepo_com"
+            android:src="@drawable/broken_cocktail_for_network_error"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

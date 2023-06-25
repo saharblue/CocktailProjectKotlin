@@ -43,18 +43,16 @@ class DetailedCocktailFragment : Fragment() {
 
             when(it.status) {
                 is Success -> {
-                    binding.progressBar.visibility = View.GONE
+                    showItem()
                     updateCocktail(it.status.data!!.drinks[0])
                     cocktail = it.status.data.drinks[0]
                     binding.cocktailCl.visibility = View.VISIBLE
                 }
-                is Loading -> {
-                    binding.progressBar.visibility = View.VISIBLE
-                    binding.cocktailCl.visibility = View.GONE
-                }
-                is Error -> {
-                    binding.progressBar.visibility = View.GONE
-                    Toast.makeText(requireContext(),it.status.message, Toast.LENGTH_LONG).show()
+                is Loading -> loadingResults()
+                is Error ->  {
+                    if(it.status.message == "Network call has failed for the following reason: Unable to resolve host \"www.thecocktaildb.com\": No address associated with hostname") {
+                        networkError()
+                    }
                 }
             }
         }
@@ -70,6 +68,31 @@ class DetailedCocktailFragment : Fragment() {
         }
 
     }
+
+    private fun showItem()
+    {
+        binding.noConnectionVector.visibility = View.GONE
+        binding.cocktailCl.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.GONE
+        binding.addToFavoritesButton.visibility = View.VISIBLE
+    }
+
+    private fun loadingResults()
+    {
+        binding.noConnectionVector.visibility = View.GONE
+        binding.cocktailCl.visibility = View.GONE
+        binding.progressBar.visibility = View.VISIBLE
+        binding.addToFavoritesButton.visibility = View.GONE
+    }
+
+    private fun networkError()
+    {
+        binding.noConnectionVector.visibility = View.VISIBLE
+        binding.cocktailCl.visibility = View.GONE
+        binding.progressBar.visibility = View.GONE
+        binding.addToFavoritesButton.visibility = View.GONE
+    }
+
 
     private fun updateCocktail(cocktail: Cocktail) {
         val measures = arrayOf(cocktail.strMeasure1, cocktail.strMeasure2, cocktail.strMeasure3, cocktail.strMeasure4, cocktail.strMeasure5,

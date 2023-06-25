@@ -14,6 +14,19 @@
         android:indeterminate="true"
         tools:visibility="gone" />
 
+    <ImageView
+        android:layout_gravity="center"
+        android:id="@+id/noConnectionVector"
+        android:layout_width="134dp"
+        android:layout_height="134dp"
+        android:src="@drawable/broken_cocktail_for_network_error"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
