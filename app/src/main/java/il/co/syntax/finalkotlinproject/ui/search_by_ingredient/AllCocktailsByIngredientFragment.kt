@@ -75,7 +75,14 @@ class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapte
 
                 }
 
-                is Error -> noResults()
+                is Error ->  {
+                    if(it.status.message == "Network call has failed for the following reason: Unable to resolve host \"www.thecocktaildb.com\": No address associated with hostname") {
+                        loadingResults()
+                    }
+                    else {
+                        noResults()
+                    }
+                }
             }
         }
 
@@ -106,6 +113,14 @@ class AllCocktailsByIngredientFragment : Fragment(), CocktailsByIngredientAdapte
         binding.cocktailsRv.visibility = View.GONE
         binding.noResultsTitle.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun networkError()
+    {
+        binding.cocktailVector.visibility = View.GONE
+        binding.cocktailsRv.visibility = View.GONE
+        binding.noResultsTitle.visibility = View.GONE
+        binding.progressBar.visibility = View.GONE
     }
 
     override fun onCocktailClick(cocktailId: Int){

@@ -14,6 +14,7 @@ fun <A> performFetchingFromRemote(remoteDbFetch: suspend () ->Resource<A>) : Liv
         emit(Resource.loading())
 
         val fetchResource = remoteDbFetch()
+
         emit(fetchResource)
 
     }

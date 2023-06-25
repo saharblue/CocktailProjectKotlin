@@ -76,7 +76,14 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
 
                 }
 
-                is Error -> noResults()
+                is Error ->  {
+                    if(it.status.message == "Network call has failed for the following reason: Unable to resolve host \"www.thecocktaildb.com\": No address associated with hostname") {
+                        loadingResults()
+                    }
+                    else {
+                        noResults()
+                    }
+                }
 
             }
         }
