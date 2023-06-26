@@ -8,8 +8,6 @@ abstract class BaseDataSource {
 
     protected suspend fun <T>
             getResult(call : suspend () -> Response<T>) : Resource<T> {
-        val TAG = "BaseDataSource"
-
         try {
             val result  = call()
             if(result.isSuccessful) {
