@@ -68,15 +68,15 @@ class GetRandomCocktailFragment : Fragment() {
                 binding.getRandomCocktailTitle.visibility = View.GONE
                 binding.randomizeButtonImage.clearAnimation()
                 // Navigate away or do other things here...
-                onButtonClick(-1)
+                onButtonClick()
             }, 2000)
         }
     }
 
-    private fun onButtonClick(idDrink: Int){
+    private fun onButtonClick(){
         findNavController().navigate(
             R.id.action_getRandomCocktailFragment_to_detailedCocktailFragment,
-            bundleOf("idDrink" to idDrink)
+            bundleOf("idDrink" to -1)
         )
     }
 

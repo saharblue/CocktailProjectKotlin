@@ -5,11 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.data.models.IngredientResult
-import il.co.syntax.finalkotlinproject.databinding.ItemCocktailBinding
 import il.co.syntax.finalkotlinproject.databinding.ItemCocktailByIngredientBinding
-import il.co.syntax.finalkotlinproject.databinding.ItemCocktailByNameBinding
 
 class CocktailsByIngredientAdapter(private val listener : CocktailItemListener) :
     RecyclerView.Adapter<CocktailsByIngredientAdapter.CocktailViewHolder>() {
