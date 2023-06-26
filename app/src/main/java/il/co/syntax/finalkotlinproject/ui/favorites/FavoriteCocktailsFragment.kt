@@ -34,7 +34,7 @@ class FavoriteCocktailsFragment : Fragment(), FavoriteCocktailsAdapter.CocktailI
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FavoriteCocktailsFragmentBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -55,7 +55,7 @@ class FavoriteCocktailsFragment : Fragment(), FavoriteCocktailsAdapter.CocktailI
                     if (it.status.data!!.isNotEmpty())
                     {
                         showItems()
-                        adapter.setCocktails(it.status.data!!)
+                        adapter.setCocktails(it.status.data)
                     }
                     else
                     {

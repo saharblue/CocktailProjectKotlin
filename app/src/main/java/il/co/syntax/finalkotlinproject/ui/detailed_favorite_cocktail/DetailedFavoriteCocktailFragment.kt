@@ -1,6 +1,5 @@
 package il.co.syntax.finalkotlinproject.ui.detailed_favorite_cocktail
 
-import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,7 +11,6 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
-import il.co.syntax.finalkotlinproject.databinding.CocktailDetailFragmentBinding
 import il.co.syntax.finalkotlinproject.databinding.CocktailFavoriteDetailFragmentBinding
 import il.co.syntax.finalkotlinproject.utils.Error
 import il.co.syntax.finalkotlinproject.utils.Loading

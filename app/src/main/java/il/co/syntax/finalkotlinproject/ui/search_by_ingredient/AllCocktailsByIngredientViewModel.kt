@@ -5,8 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.switchMap
 import dagger.hilt.android.lifecycle.HiltViewModel
-import il.co.syntax.finalkotlinproject.data.models.Cocktail
-import il.co.syntax.finalkotlinproject.data.models.IngredientResult
 import il.co.syntax.finalkotlinproject.data.models.IngredientSearchResults
 import il.co.syntax.finalkotlinproject.data.repository.CocktailRepository
 import il.co.syntax.finalkotlinproject.utils.Resource

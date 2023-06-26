@@ -3,9 +3,7 @@ package il.co.syntax.finalkotlinproject.utils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 fun <A> performFetchingFromRemote(remoteDbFetch: suspend () ->Resource<A>) : LiveData<Resource<A>> =
 

@@ -1,6 +1,5 @@
 package il.co.syntax.finalkotlinproject.data.remote_db
 
-import android.util.Log
 import il.co.syntax.finalkotlinproject.utils.Resource
 import retrofit2.Response
 

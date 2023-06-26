@@ -6,8 +6,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.data.models.DetailedCocktail
 import il.co.syntax.finalkotlinproject.data.repository.CocktailRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
