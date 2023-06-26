@@ -80,7 +80,7 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
                 }
 
                 is Error ->  {
-                    if(it.status.message == "Network call has failed for the following reason: Unable to resolve host \"www.thecocktaildb.com\": No address associated with hostname") {
+                    if(it.status.message == getString(R.string.no_internet_connection_message_from_api)) {
                         networkError()
                     }
                     else {

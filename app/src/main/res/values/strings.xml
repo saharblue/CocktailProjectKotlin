@@ -40,5 +40,6 @@
     <string name="no_result_title">No Results</string>
     <string name="connection_error_message">Oops. something wen\'t wrong, please check your network</string>
     <string name="connection_error_button">Try again</string>
+    <string name="no_internet_connection_message_from_api">"Network call has failed for the following reason: Unable to resolve host \"www.thecocktaildb.com\": No address associated with hostname"</string>
 
 </resources>

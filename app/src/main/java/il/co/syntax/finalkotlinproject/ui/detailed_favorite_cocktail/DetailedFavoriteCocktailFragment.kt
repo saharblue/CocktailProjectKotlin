@@ -31,7 +31,7 @@ class DetailedFavoriteCocktailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = CocktailFavoriteDetailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -47,7 +47,7 @@ class DetailedFavoriteCocktailFragment : Fragment() {
                     binding.progressBar.visibility = View.GONE
                     if (it.status.data != null)
                     {
-                        updateCocktail(it.status.data!!)
+                        updateCocktail(it.status.data)
                         cocktail = it.status.data
                     }
                     binding.cocktailCl.visibility = View.VISIBLE
