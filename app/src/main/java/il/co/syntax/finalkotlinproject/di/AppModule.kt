@@ -30,9 +30,9 @@ object AppModule {
     }
 
     @Provides
+    @Singleton
     fun provideCocktailService(retrofit: Retrofit) : CocktailService =
         retrofit.create(CocktailService::class.java)
-
 
     @Provides
     @Singleton

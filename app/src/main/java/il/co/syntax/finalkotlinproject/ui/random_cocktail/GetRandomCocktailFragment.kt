@@ -25,7 +25,7 @@ class GetRandomCocktailFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = GetRandomCocktailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }

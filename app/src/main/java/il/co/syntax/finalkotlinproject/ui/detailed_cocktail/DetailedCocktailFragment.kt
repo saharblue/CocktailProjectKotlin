@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
+import il.co.syntax.finalkotlinproject.R
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.databinding.CocktailDetailFragmentBinding
 import il.co.syntax.finalkotlinproject.utils.Error
@@ -25,12 +26,11 @@ class DetailedCocktailFragment : Fragment() {
     private var binding: CocktailDetailFragmentBinding by autoCleared()
     private lateinit var cocktail: Cocktail
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = CocktailDetailFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -38,9 +38,7 @@ class DetailedCocktailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         viewModel.cocktail.observe(viewLifecycleOwner) {
-
             when(it.status) {
                 is Success -> {
                     showItem()
@@ -50,7 +48,7 @@ class DetailedCocktailFragment : Fragment() {
                 }
                 is Loading -> loadingResults()
                 is Error ->  {
-                    if(it.status.message == "Network call has failed for the following reason: Unable to resolve host \"www.thecocktaildb.com\": No address associated with hostname") {
+                    if(it.status.message == getString(R.string.no_internet_connection_message_from_api)) {
                         networkError()
                     }
                 }
