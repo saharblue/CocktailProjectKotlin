@@ -1,17 +1,20 @@
 package il.co.syntax.finalkotlinproject.ui.search_by_name
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import il.co.syntax.finalkotlinproject.R
 import il.co.syntax.finalkotlinproject.databinding.CocktailsByNameFragmentBinding
@@ -90,6 +93,16 @@ class AllCocktailsByNameFragment : Fragment(), CocktailsByNameAdapter.CocktailIt
         arguments?.getString("cocktailName")?.let {
             viewModel.setName(it)
         }
+
+        binding.cocktailsRv.addOnScrollListener(object: RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                // Hide the keyboard
+                val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
+                imm?.hideSoftInputFromWindow(view.windowToken, 0)
+            }
+        })
 
     }
 

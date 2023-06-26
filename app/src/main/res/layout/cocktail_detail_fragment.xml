@@ -14,19 +14,6 @@
         android:indeterminate="true"
         tools:visibility="gone" />
 
-    <ImageView
-        android:layout_gravity="center"
-        android:id="@+id/noConnectionVector"
-        android:layout_width="134dp"
-        android:layout_height="134dp"
-        android:src="@drawable/broken_cocktail_for_network_error"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintVertical_bias="0.11" />
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -36,6 +23,35 @@
             android:id="@+id/cocktail_cl"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/noConnectionVector"
+                android:layout_width="257dp"
+                android:layout_height="237dp"
+                android:layout_gravity="center"
+                android:src="@drawable/broken_cocktail_for_network_error"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/no_connection_title"
+                android:layout_width="307dp"
+                android:layout_height="97dp"
+                android:gravity="center"
+                android:text="@string/connection_error_message"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.576"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.763" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/image"
@@ -165,10 +181,10 @@
                 android:id="@+id/instructions_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="164dp"
                 android:text="@string/instructions_title"
-                android:textStyle="bold"
                 android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cocktail_ingredients1" />
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true"
@@ -22,14 +21,15 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="wrap_content"
+        android:layout_width="236dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
-        android:text="TextView"
+        android:gravity="center"
+        android:text="@string/text_view_title"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_gravity="center|top" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/species_and_status"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="5dp"
-        android:text="TextView"
+        android:text="@string/text_view_title"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="16dp"
         app:layout_constraintStart_toEndOf="@+id/image"

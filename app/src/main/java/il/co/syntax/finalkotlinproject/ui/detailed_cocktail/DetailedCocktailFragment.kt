@@ -72,6 +72,7 @@ class DetailedCocktailFragment : Fragment() {
     private fun showItem()
     {
         binding.noConnectionVector.visibility = View.GONE
+        binding.noConnectionTitle.visibility = View.GONE
         binding.cocktailCl.visibility = View.VISIBLE
         binding.progressBar.visibility = View.GONE
         binding.addToFavoritesButton.visibility = View.VISIBLE
@@ -88,6 +89,7 @@ class DetailedCocktailFragment : Fragment() {
     private fun networkError()
     {
         binding.noConnectionVector.visibility = View.VISIBLE
+        binding.noConnectionTitle.visibility = View.VISIBLE
         binding.cocktailCl.visibility = View.GONE
         binding.progressBar.visibility = View.GONE
         binding.addToFavoritesButton.visibility = View.GONE
