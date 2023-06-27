@@ -13,7 +13,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout"
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:text="@string/no_result_title"
             android:textSize="25sp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -74,13 +74,13 @@
             android:layout_width="134dp"
             android:layout_height="134dp"
             android:src="@drawable/yellow_lemon_svgrepo_com"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/no_connection_title"
-            app:layout_constraintVertical_bias="0.191" />
+            app:layout_constraintTop_toBottomOf="@+id/no_results_title"
+            app:layout_constraintVertical_bias="0.096" />
 
         <ImageView
             android:id="@+id/noConnectionVector"
