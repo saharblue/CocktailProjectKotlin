@@ -2,16 +2,20 @@ package il.co.syntax.finalkotlinproject.ui.detailed_favorite_cocktail
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import dagger.hilt.android.AndroidEntryPoint
+import il.co.syntax.finalkotlinproject.R
 import il.co.syntax.finalkotlinproject.data.models.Cocktail
 import il.co.syntax.finalkotlinproject.databinding.CocktailFavoriteDetailFragmentBinding
+import il.co.syntax.finalkotlinproject.databinding.CustomToastLayoutBinding
 import il.co.syntax.finalkotlinproject.utils.Error
 import il.co.syntax.finalkotlinproject.utils.Loading
 import il.co.syntax.finalkotlinproject.utils.Success
@@ -66,10 +70,29 @@ class DetailedFavoriteCocktailFragment : Fragment() {
         }
 
         binding.removeFromFavoritesButton.setOnClickListener {
-            viewModel.deleteCocktail(cocktail)
-            binding.removeFromFavoritesButton.isEnabled = false
-            binding.removeFromFavoritesButton.setBackgroundColor(Color.parseColor("#D3D3D3"))
+            deleteFromFavoritesAction()
         }
+
+    }
+
+    private fun deleteFromFavoritesAction()
+    {
+        viewModel.deleteCocktail(cocktail)
+        binding.removeFromFavoritesButton.isEnabled = false
+        binding.removeFromFavoritesButton.setBackgroundColor(Color.parseColor("#D3D3D3"))
+        val inflater = layoutInflater
+        val binding = CustomToastLayoutBinding.inflate(inflater)
+
+        binding.toastMessage.text = "This is a custom toast with vector image."
+        binding.toastIcon.setImageResource(R.drawable.cocktail_with_empty_heart)
+
+        val toast = Toast(requireContext())
+        toast.duration = Toast.LENGTH_SHORT
+        toast.view = binding.root
+
+        // Position the toast in the middle of the screen
+        toast.setGravity(Gravity.CENTER, 0, 0)
+        toast.show()
 
     }
 
