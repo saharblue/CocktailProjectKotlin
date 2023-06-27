@@ -83,7 +83,8 @@ class DetailedFavoriteCocktailFragment : Fragment() {
         val inflater = layoutInflater
         val binding = CustomToastLayoutBinding.inflate(inflater)
 
-        binding.toastMessage.text = "This is a custom toast with vector image."
+        binding.toastMessage.text = getString(R.string.removed_from_favorites)
+        binding.customToastContainer.setBackgroundResource(R.drawable.rounded_corners)
         binding.toastIcon.setImageResource(R.drawable.cocktail_with_empty_heart)
 
         val toast = Toast(requireContext())

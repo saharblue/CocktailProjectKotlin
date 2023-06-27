@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -76,7 +77,8 @@ class DetailedCocktailFragment : Fragment() {
         val inflater = layoutInflater
         val binding = CustomToastLayoutBinding.inflate(inflater)
 
-        binding.toastMessage.text = "This is a custom toast with vector image."
+        binding.toastMessage.text = getString(R.string.added_to_favorites)
+        binding.customToastContainer.setBackgroundResource(R.drawable.rounded_corners)
         binding.toastIcon.setImageResource(R.drawable.cocktail_with_red_heart)
 
         val toast = Toast(requireContext())

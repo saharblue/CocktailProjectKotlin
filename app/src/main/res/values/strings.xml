@@ -35,6 +35,8 @@
     <string name="delete_dialog_message">Are you sure you want to delete?</string>
     <string name="delete_dialog_pos">Yes</string>
     <string name="delete_dialog_neg">No</string>
+    <string name="added_to_favorites">Added to favorites</string>
+    <string name="removed_from_favorites">Removed from favorites</string>
 
 <!--    connection error-->
     <string name="no_result_title">No Results</string>
