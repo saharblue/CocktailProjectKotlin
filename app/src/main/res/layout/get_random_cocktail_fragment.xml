@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,30 +8,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.random_cocktail.GetRandomCocktailFragment">
 
-    <TextView
-        android:id="@+id/get_random_cocktail_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/random_cocktail_title"
-        android:textSize="18sp"
-        android:textColor="@android:color/black"
-        />
-
-    <FrameLayout
-        android:id="@+id/randomize_button"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="311dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <ImageView
-            android:id="@+id/randomize_button_image"
-            android:layout_width="390dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/cocktail_random_logo" />
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/get_random_cocktail_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/random_cocktail_title"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textColor="@android:color/black" />
 
-    </FrameLayout>
+            <FrameLayout
+                android:id="@+id/randomize_button"
+                android:layout_width="match_parent"
+                android:layout_height="311dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/randomize_button_image"
+                    android:layout_width="390dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/cocktail_random_logo" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
